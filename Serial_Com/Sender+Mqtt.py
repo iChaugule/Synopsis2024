@@ -22,23 +22,37 @@ def on_message(client, userdata, msg):
 
     msg_string = str(msg.payload.decode("utf-8")).rstrip()
    
-    if str(msg_string).rstrip() == "forward":
-        ser.write("forward\n".encode('utf-8'))
+    if str(msg_string).rstrip() == "move front":
+        ser.write("front\n".encode('utf-8'))
         print("Received Message:" + msg_string)
         # Do something
 
-    if str(msg_string).rstrip() == "reverse":
-        ser.write("reverse\n".encode('utf-8'))
+    if str(msg_string).rstrip() == "move back":
+        ser.write("back\n".encode('utf-8'))
         print("Received Message:" + msg_string)
        # Do something else
        
-    if str(msg_string).rstrip() == "stop":
+    if str(msg_string).rstrip() == "stop moving":
         ser.write("stop\n".encode('utf-8'))
         print("Received Message:" + msg_string)
        # Do something else
- 
+       
+    if str(msg_string).rstrip() == "horn":
+        ser.write("horn\n".encode('utf-8'))
+        print("Received Message:" + msg_string)
+       # Do something else
+       
+    if str(msg_string).rstrip() == "light on":
+        ser.write("light on\n".encode('utf-8'))
+        print("Received Message:" + msg_string)
+       # Do something else
+       
+    if str(msg_string).rstrip() == "light off":
+        ser.write("light off\n".encode('utf-8'))
+        print("Received Message:" + msg_string)
+       # Do something else
 
-ser = serial.Serial( port='/dev/ttyACM1', baudrate = 9600, timeout=1)
+ser = serial.Serial( port='/dev/ttyACM0', baudrate = 9600, timeout=1)
 time.sleep(3)
 ser.reset_input_buffer()
 
