@@ -1,3 +1,5 @@
+#include "pitches.h"
+
 int In1 = 7;
 int In2 = 8; 
 int In3 = 2;
@@ -5,6 +7,7 @@ int In4 = 4;
 int ENA = 5;
 int ENB = 6;
 int LightP = 12;
+int HornP = 13;
 int SPEED = 255;
 
 void setup() {
@@ -53,6 +56,8 @@ void loop() {
       digitalWrite(LightP,HIGH);
     } else if (incomingString == "light off") {
       digitalWrite(LightP,LOW); 
+    } else if (incomingString == "horn") {
+      tone(HornP, NOTE_F5, 1000)
     } 
     
      
